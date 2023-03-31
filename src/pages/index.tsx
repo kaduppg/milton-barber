@@ -1,11 +1,20 @@
+import Modal from "components/Modal";
 import { type NextPage } from "next";
+import { useState } from "react";
 
 const Home: NextPage = () => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  const accountNumber = "01-0867-0750138-00";
+  const handleClipboard = () => {
+    const text = "01-0867-0750138-00";
+    void navigator.clipboard.writeText(text);
+    setIsOpen(true);
+  };
 
   return (
     <div className="bg-gray-900">
+      {/* {isOpen && <Modal isOpen={isOpen} setIsOpen={setIsOpen} />} */}
+
       <header className="absolute inset-x-0 top-0 z-50">
         <nav
           className="flex items-center justify-between p-6 lg:px-8"
@@ -41,24 +50,21 @@ const Home: NextPage = () => {
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-2xl text-center">
               <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-                Hey there 👋, I'm <span className="text-indigo-400">Milton the motherfu$#@ barber</span>
+                hey there <span className="text-indigo-400">👋</span>{" "}
+                <span className="text-indigo-400">
+                  I am Milton the MANOLO barber
+                </span>
               </h1>
               <p className="mt-6 text-lg leading-8 text-gray-300">
                 Just hit the button below and get the account number coppied!
               </p>
               <div className="mt-10 flex items-center justify-center gap-x-6">
                 <button
-                  onClick={() =>{
-                             
-                    navigator.clipboard.writeText(accountNumber)
-                    alert("Copied!")
-                  }
-                  }
+                  onClick={handleClipboard}
                   className="rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
                 >
                   Hit me up!
                 </button>
-               
               </div>
             </div>
             <img
