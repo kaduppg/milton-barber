@@ -136,7 +136,7 @@ const Home: NextPage = () => {
                       as="h3"
                       className="mt-4 flex justify-center text-lg font-medium leading-6 text-gray-900"
                     >
-                      Account Number Copied successfully!
+                      Account Number Copied!
                     </Dialog.Title>
                     <div className="mt-2 flex justify-center">
                       <p className="text-sm text-gray-500">
