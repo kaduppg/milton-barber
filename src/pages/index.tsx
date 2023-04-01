@@ -1,5 +1,7 @@
+import { CheckIcon, PlusIcon } from "@heroicons/react/24/outline";
 import Modal from "components/Modal";
 import { type NextPage } from "next";
+import Image from "next/image";
 import { useState } from "react";
 
 const Home: NextPage = () => {
@@ -13,7 +15,7 @@ const Home: NextPage = () => {
 
   return (
     <div className="bg-gray-900">
-      {/* {isOpen && <Modal isOpen={isOpen} setIsOpen={setIsOpen} />} */}
+      {isOpen && <Modal isOpen={isOpen} setIsOpen={setIsOpen} />}
 
       <header className="absolute inset-x-0 top-0 z-50">
         <nav
@@ -23,10 +25,13 @@ const Home: NextPage = () => {
           <div className="flex lg:flex-1">
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
-              <img
-                className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                alt=""
+
+              <Image
+                className="h-12 w-12 rounded-full"
+                src="/miltao.jpeg"
+                width={2432}
+                height={1442}
+                alt="Milton"
               />
             </a>
           </div>
@@ -55,6 +60,7 @@ const Home: NextPage = () => {
                   I am Milton the MANOLO barber
                 </span>
               </h1>
+
               <p className="mt-6 text-lg leading-8 text-gray-300">
                 Just hit the button below and get the account number coppied!
               </p>
@@ -67,12 +73,14 @@ const Home: NextPage = () => {
                 </button>
               </div>
             </div>
-            <img
-              src="https://tailwindui.com/img/component-images/dark-project-app-screenshot.png"
-              alt="App screenshot"
+
+            <Image
+              /* className="h-6 w-6 p-1" */
+              className="mt-16 rounded-md bg-white/5 shadow-2xl ring-1 ring-white/10 sm:mt-24"
+              src="/miltao.jpeg"
               width={2432}
               height={1442}
-              className="mt-16 rounded-md bg-white/5 shadow-2xl ring-1 ring-white/10 sm:mt-24"
+              alt="Milton"
             />
           </div>
         </div>
