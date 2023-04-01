@@ -3,6 +3,8 @@ import Modal from "components/Modal";
 import { type NextPage } from "next";
 import Image from "next/image";
 import { useState } from "react";
+import { Fragment } from "react";
+import { Dialog, Transition } from "@headlessui/react";
 
 const Home: NextPage = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -15,8 +17,6 @@ const Home: NextPage = () => {
 
   return (
     <div className="bg-gray-900">
-      {isOpen && <Modal isOpen={isOpen} setIsOpen={setIsOpen} />}
-
       <header className="absolute inset-x-0 top-0 z-50">
         <nav
           className="flex items-center justify-between p-6 lg:px-8"
@@ -75,7 +75,6 @@ const Home: NextPage = () => {
             </div>
 
             <Image
-              /* className="h-6 w-6 p-1" */
               className="mt-16 rounded-md bg-white/5 shadow-2xl ring-1 ring-white/10 sm:mt-24"
               src="/miltao.jpeg"
               width={2432}
@@ -96,6 +95,70 @@ const Home: NextPage = () => {
             }}
           />
         </div>
+
+        <Transition appear show={isOpen} as={Fragment}>
+          <Dialog
+            as="div"
+            className="relative z-10"
+            onClose={() => setIsOpen(!isOpen)}
+          >
+            <Transition.Child
+              as={Fragment}
+              enter="ease-out duration-300"
+              enterFrom="opacity-0"
+              enterTo="opacity-100"
+              leave="ease-in duration-200"
+              leaveFrom="opacity-100"
+              leaveTo="opacity-0"
+            >
+              <div className="fixed inset-0 bg-black bg-opacity-25" />
+            </Transition.Child>
+
+            <div className="fixed inset-0 overflow-y-auto">
+              <div className="flex min-h-full items-center justify-center p-4 text-center">
+                <Transition.Child
+                  as={Fragment}
+                  enter="ease-out duration-300"
+                  enterFrom="opacity-0 scale-95"
+                  enterTo="opacity-100 scale-100"
+                  leave="ease-in duration-200"
+                  leaveFrom="opacity-100 scale-100"
+                  leaveTo="opacity-0 scale-95"
+                >
+                  <Dialog.Panel className=" w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                    <div className="flex justify-center ">
+                      <span className="rounded-full bg-green-500 p-2 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                        <CheckIcon className="h-5 w-5" aria-hidden="true" />
+                      </span>
+                    </div>
+
+                    <Dialog.Title
+                      as="h3"
+                      className="mt-4 flex justify-center text-lg font-medium leading-6 text-gray-900"
+                    >
+                      Account Number Copied successfully!
+                    </Dialog.Title>
+                    <div className="mt-2 flex justify-center">
+                      <p className="text-sm text-gray-500">
+                        Now you can paste it anywhere you want.
+                      </p>
+                    </div>
+
+                    <div className="mt-4 flex justify-center ">
+                      <button
+                        type="button"
+                        className="inline-flex justify-center rounded-md border border-transparent bg-green-200 px-4 py-2 text-sm font-medium text-emerald-800 hover:bg-green-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                        onClick={() => setIsOpen(!isOpen)}
+                      >
+                        Got it, thanks!
+                      </button>
+                    </div>
+                  </Dialog.Panel>
+                </Transition.Child>
+              </div>
+            </div>
+          </Dialog>
+        </Transition>
       </div>
     </div>
   );
