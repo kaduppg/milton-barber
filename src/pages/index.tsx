@@ -14,6 +14,7 @@ const Home: NextPage = () => {
     const text = "01-0867-0750138-00";
     void navigator.clipboard.writeText(text);
     setIsOpen(true);
+    console.log("Copied to clipboard!")
   };
 
   return (
