@@ -16,7 +16,7 @@ const Home: NextPage = () => {
   };
 
   return (
-    <div className="bg-gray-900">
+    <div className="bg-gray-100">
       <header className="absolute inset-x-0 top-0 z-50">
         <nav
           className="flex items-center justify-between p-6 lg:px-8"
@@ -54,20 +54,20 @@ const Home: NextPage = () => {
         <div className="py-24 sm:py-32 lg:pb-40">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-2xl text-center">
-              <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-                hey there <span className="text-indigo-400">👋</span>{" "}
-                <span className="text-indigo-400">
-                  I am Milton the MANOLO barber
+              <h1 className="text-4xl font-bold tracking-tight text-slate-500 sm:text-6xl">
+                
+                <span className="text-orange-400">
+                  {`"Hey bro! I'm Milton the barber"`} 
                 </span>
               </h1>
 
-              <p className="mt-6 text-lg leading-8 text-gray-300">
+              <p className="mt-6 text-lg leading-8 text-slate-500">
                 Just hit the button below and get the account number coppied!
               </p>
               <div className="mt-10 flex items-center justify-center gap-x-6">
                 <button
                   onClick={handleClipboard}
-                  className="rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
+                  className="rounded-md bg-orange-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-orange-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
                 >
                   Hit me up!
                 </button>
@@ -147,7 +147,7 @@ const Home: NextPage = () => {
                     <div className="mt-4 flex justify-center ">
                       <button
                         type="button"
-                        className="inline-flex justify-center rounded-md border border-transparent bg-green-200 px-4 py-2 text-sm font-medium text-emerald-800 hover:bg-green-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                        className="inline-flex justify-center rounded-md border border-transparent bg-orange-200 px-4 py-2 text-sm font-medium text-orange-800 hover:bg-orange-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                         onClick={() => setIsOpen(!isOpen)}
                       >
                         Got it, thanks!
