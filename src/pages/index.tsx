@@ -1,11 +1,8 @@
-import { CheckIcon, PlusIcon } from "@heroicons/react/24/outline";
-import Modal from "components/Modal";
 import { type NextPage } from "next";
+import { CheckIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
-import { useState } from "react";
-import { Fragment } from "react";
+import { useState, Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import Footer from "components/Footer";
 
 const Home: NextPage = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -14,7 +11,7 @@ const Home: NextPage = () => {
     const text = "01-0867-0750138-00";
     void navigator.clipboard.writeText(text);
     setIsOpen(true);
-    console.log("Copied to clipboard!")
+    console.log("Copied to clipboard!");
   };
 
   return (
@@ -66,13 +63,14 @@ const Home: NextPage = () => {
                 <p className="mt-6 text-lg leading-8 text-slate-500">
                   Just hit the button below and get the account number coppied!
                 </p>
-                <div className="mt-10 flex items-center justify-center gap-x-6">
+                <div className="mt-10 flex flex-col items-center justify-center gap-x-6">
                   <button
                     onClick={handleClipboard}
                     className="rounded-md bg-orange-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-orange-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-400"
                   >
-                    {`Thank you mate 🚀`}
+                    {`Hit me Up!`}
                   </button>
+                  <p className="py-5 text-orange-500">Thank you mate 🚀</p>
                 </div>
               </div>
 
@@ -85,7 +83,6 @@ const Home: NextPage = () => {
               />
             </div>
           </div>
-        
 
           <Transition appear show={isOpen} as={Fragment}>
             <Dialog
